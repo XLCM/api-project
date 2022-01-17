@@ -2,7 +2,9 @@ import "../css/styles.scss";
 
 import CurrencyExchange from "./currencyConverter";
 
-let derp = CurrencyExchange.compareCurrency("USD", "GBP");
+CurrencyExchange.populateCurrencySelection();
 
-console.log(derp);
-// console.log(derp.);
+// console.log(CurrencyExchange.convertCurrency("USD", "GBP"));
+
+// console.log(derp);
+// // console.log(derp.);
