@@ -7,30 +7,61 @@
   </head>
 
   <body>
-    <section class="section">
-      <div class="container">
-        <div class="columns">
-          <h1>Convert Currency</h1>
-          <div class="column">
-            <div id="convertFrom" class="select">
-              <select id="convertFromOptions">
-                <option value="null">Select your starting currency:</option>
-                <option value="USD">United States Dollar</option>
-                <option value="GBP">Pound Sterling</option>
-              </select>
+    <div class="container">
+      <div class="columns">
+        <!-- amount -->
+        <div class="column is-one-quarter">
+          <div class="field">
+            <div class="control">
+              <input
+                class="input"
+                id="amount"
+                type="number"
+                placeholder="Amount to convert:"
+              />
             </div>
           </div>
-          <div class="column">
-            <div id="convertTo" class="select">
-              <select id="convertToOptions">
-                <option value="null">Select your starting currency:</option>
-                <option value="USD">United States Dollar</option>
-                <option value="GBP">Pound Sterling</option>
-              </select>
+        </div>
+        <!-- convert from -->
+        <div class="column is-one-quarter">
+          <div class="field">
+            <div class="control">
+              <div class="select">
+                <select id="convertFromOptions">
+                  <option value="default">Convert from:</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- convert to -->
+        <div class="column is-one-quarter">
+          <div class="field">
+            <div class="control">
+              <div class="select">
+                <select id="convertToOptions">
+                  <option value="default">Convert to:</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- submit -->
+        <div class="column is-one-quarter">
+          <div class="field">
+            <div class="control">
+              <button id="formSubmit" class="button is-primary is-fullwidth">
+                Convert!
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="column">
+      <div class="column">
+        <p id="result"></p>
+      </div>
+    </div>
   </body>
 </html>
