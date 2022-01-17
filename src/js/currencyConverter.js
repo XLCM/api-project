@@ -8,8 +8,15 @@ export default class CurrencyExchange {
         return response.json();
       })
       .then((response) => {
-        response.supported_codes.forEach((code) => {
-          console.log(`<option value="${code[0]}">${code[1]}</option>`);
+        const currencyOptions = response.supported_codes;
+        const convertFrom = document.getElementById("convertFromOptions");
+        const convertTo = document.getElementById("convertToOptions");
+        currencyOptions.forEach((currency) => {
+          const option = document.createElement("option");
+          option.value = currency[0];
+          option.textContent = currency[0] + " - " + currency[1];
+          convertFrom.appendChild(option);
+          convertTo.appendChild(option.cloneNode(true));
         });
       })
       .catch(function (error) {

@@ -4,7 +4,13 @@ import CurrencyExchange from "./currencyConverter";
 
 CurrencyExchange.populateCurrencySelection();
 
-// console.log(CurrencyExchange.convertCurrency("USD", "GBP"));
+let convertFrom = document.getElementById("convertFromOptions");
+let convertTo = document.getElementById("convertToOptions");
 
-// console.log(derp);
-// // console.log(derp.);
+convertFrom.onchange = function () {
+  console.log(this.value);
+};
+
+convertTo.onchange = function () {
+  console.log(this.value);
+};
