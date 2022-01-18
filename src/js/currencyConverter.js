@@ -25,31 +25,25 @@ export default class CurrencyExchange {
   }
 
   static convertCurrency(convertFrom, convertTo, amount) {
-    return (
-      fetch(
-        `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/${convertFrom}/${convertTo}/${amount}`
-      )
-        .then(function (response) {
-          if (!response.ok) {
-            throw Error(response.statusText);
-          }
-          return response.json();
-        })
-        .then((response) => {
-          return response.base_code;
-        })
-        .then((response) => {
-          return response.target_code;
-        })
-        // .then((response) => {
-        //   return response.conversion_rate;
-        // })
-        // .then((response) => {
-        //   return response.conversion_result;
-        // })
-        .catch(function (error) {
-          return error;
-        })
-    );
+    return fetch(
+      `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/${convertFrom}/${convertTo}/${amount}`
+    )
+      .then(function (response) {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then((response) => {
+        return {
+          base_code: response.base_code,
+          target_code: response.target_code,
+          conversion_rate: response.conversion_rate,
+          conversion_result: response.conversion_result,
+        };
+      })
+      .catch(function (error) {
+        return error;
+      });
   }
 }

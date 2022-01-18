@@ -4,15 +4,18 @@ import CurrencyExchange from "./currencyConverter";
 
 CurrencyExchange.populateCurrencySelection();
 
-// console.log(CurrencyExchange.convertCurrency("USD", "GBP", 100));
-
 document.getElementById("formSubmit").addEventListener("click", (event) => {
   event.preventDefault();
   let amount = document.getElementById("amount").value;
   let convertFrom = document.getElementById("convertFromOptions").value;
   let convertTo = document.getElementById("convertToOptions").value;
+  let result = document.getElementById("result");
 
-  console.log("amount is: " + amount);
-  console.log("convert from is: " + convertFrom);
-  console.log("convert to is: " + convertTo);
+  let response = CurrencyExchange.convertCurrency(
+    convertFrom,
+    convertTo,
+    amount
+  ).then((data) => {
+    result.innerHTML = `${amount} of ${data.base_code} is ${data.conversion_result} of ${data.target_code}`;
+  });
 });
