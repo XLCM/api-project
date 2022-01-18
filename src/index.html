@@ -4,63 +4,72 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>API Project | Phil Curran</title>
+    <style>
+      #main {
+        margin-top: 150px;
+      }
+    </style>
   </head>
 
   <body>
-    <div class="container">
-      <div class="columns">
-        <!-- amount -->
-        <div class="column is-one-quarter">
-          <div class="field">
-            <div class="control">
-              <input
-                class="input"
-                id="amount"
-                type="number"
-                placeholder="Amount to convert:"
-              />
+    <div id="main" class="container">
+      <div class="content">
+        <h1 class="title is-1">Currency Converter</h1>
+        <div class="columns">
+          <!-- amount -->
+          <div class="column is-one-quarter">
+            <div class="field">
+              <div class="control">
+                <input
+                  class="input"
+                  id="amount"
+                  type="number"
+                  placeholder="Amount to convert:"
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <!-- convert from -->
-        <div class="column is-one-quarter">
-          <div class="field">
-            <div class="control">
-              <div class="select">
-                <select id="convertFromOptions">
-                  <option value="default">Convert from:</option>
-                </select>
+          <!-- convert from -->
+          <div class="column is-one-quarter">
+            <div class="field">
+              <div class="control">
+                <div class="select">
+                  <select id="convertFromOptions">
+                    <option value="default">Convert from:</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- convert to -->
+          <div class="column is-one-quarter">
+            <div class="field">
+              <div class="control">
+                <div class="select">
+                  <select id="convertToOptions">
+                    <option value="default">Convert to:</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- submit -->
+          <div class="column is-one-quarter">
+            <div class="field">
+              <div class="control">
+                <button id="formSubmit" class="button is-primary is-fullwidth">
+                  Convert!
+                </button>
               </div>
             </div>
           </div>
         </div>
-        <!-- convert to -->
-        <div class="column is-one-quarter">
-          <div class="field">
-            <div class="control">
-              <div class="select">
-                <select id="convertToOptions">
-                  <option value="default">Convert to:</option>
-                </select>
-              </div>
-            </div>
+        <div class="column">
+          <div class="column">
+            <p id="result"></p>
+            <p id="errors"></p>
           </div>
         </div>
-        <!-- submit -->
-        <div class="column is-one-quarter">
-          <div class="field">
-            <div class="control">
-              <button id="formSubmit" class="button is-primary is-fullwidth">
-                Convert!
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="column">
-        <p id="result"></p>
       </div>
     </div>
   </body>

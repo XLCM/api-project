@@ -28,7 +28,7 @@ export default class CurrencyExchange {
     return fetch(
       `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/${convertFrom}/${convertTo}/${amount}`
     )
-      .then(function (response) {
+      .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
         }
@@ -42,7 +42,7 @@ export default class CurrencyExchange {
           conversion_result: response.conversion_result,
         };
       })
-      .catch(function (error) {
+      .catch((error) => {
         return error;
       });
   }
