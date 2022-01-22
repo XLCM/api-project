@@ -43,7 +43,7 @@ Do the following:
 
 ## Known Bugs
 
-* Still can't get the error message reporting to work; webpack throws errors that prevent page load before a malformed api call can be reported.
+* Error message shows even if there isn't a reported error, and returns 'undefined.'  Still working on it.
 
 ## License
 
