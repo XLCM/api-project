@@ -13,15 +13,15 @@ document.getElementById("formSubmit").addEventListener("click", (e) => {
   let result = document.getElementById("result");
   let errorMessage = document.getElementById("errors");
 
-  let response = CurrencyExchange.convertCurrency(
-    convertFrom,
-    convertTo,
-    amount
-  )
-    .then((data) => {
-      result.innerHTML = `${amount} of ${data.base_code} is ${data.conversion_result} of ${data.target_code}.`;
+  CurrencyExchange.convertCurrency(convertFrom, convertTo, amount, errorMessage)
+    .then((response) => {
+      if (!response.ok) {
+        errorMessage.textContent =
+          "convertCurrency.js error: " + response.message;
+      }
+      return response;
     })
-    .catch((error) => {
-      errorMessage.innerHTML = error;
+    .then((response) => {
+      result.innerHTML = `${amount} of ${response.base_code} is ${response.conversion_result} of ${response.target_code}.`;
     });
 });

@@ -3,7 +3,7 @@ export default class CurrencyExchange {
     fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/codes`)
       .then((response) => {
         if (!response.ok) {
-          throw Error(response.statusText);
+          return response.statusText;
         }
         return response.json();
       })
@@ -30,17 +30,9 @@ export default class CurrencyExchange {
     )
       .then((response) => {
         if (!response.ok) {
-          throw Error(response.statusText);
+          return response.message;
         }
         return response.json();
-      })
-      .then((response) => {
-        return {
-          base_code: response.base_code,
-          target_code: response.target_code,
-          conversion_rate: response.conversion_rate,
-          conversion_result: response.conversion_result,
-        };
       })
       .catch((error) => {
         return error;
